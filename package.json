@@ -1,0 +1,14 @@
+{
+  "name": "evaluation1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "scoreFinder.js",
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.3.1"
+  }
+}
