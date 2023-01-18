@@ -1,7 +1,9 @@
 function getScore(scoreSheet) {
-    let bestScore=0;
     if(!Array.isArray(scoreSheet)){
         throw new TypeError();
+    }
+    if(scoreSheet.length>21){
+        throw new Error("Length of input can't exceed 21");
     }
     let totalScore = 0;
     let frameCount = 1;
@@ -30,10 +32,8 @@ function getScore(scoreSheet) {
             currScore = scoreSheet[i] + scoreSheet[i + 1];
             i += 2;
         }
-        bestScore=Math.max(bestScore,currScore);
         totalScore += currScore;
     }
-    console.log(bestScore);
     return totalScore;
 }
 function getBestScore(games){
