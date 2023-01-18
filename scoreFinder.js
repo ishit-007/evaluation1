@@ -1,4 +1,5 @@
 function getScore(scoreSheet) {
+    let bestScore=0;
     if(!Array.isArray(scoreSheet)){
         throw new TypeError();
     }
@@ -29,8 +30,10 @@ function getScore(scoreSheet) {
             currScore = scoreSheet[i] + scoreSheet[i + 1];
             i += 2;
         }
+        bestScore=Math.max(bestScore,currScore);
         totalScore += currScore;
     }
+    console.log(bestScore);
     return totalScore;
 }
 console.log(getScore([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 10, 10]))

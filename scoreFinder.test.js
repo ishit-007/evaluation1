@@ -5,7 +5,6 @@ describe("Find Score",()=>{
         expect(()=>getScore(123)).toThrow(TypeError);
         expect(()=>getScore({name:"Ishit"})).toThrow(TypeError);
     })
-
     it("should return 90  when input is [3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6]",()=>{
         expect(getScore([3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6])).toBe(90);
     })
