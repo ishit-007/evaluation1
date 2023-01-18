@@ -1,5 +1,11 @@
 const {getScore}=require('./scoreFinder');
 describe("Find Score",()=>{
+    it("should throw a TypeErron when provided input is not an array",()=>{
+        expect(()=>getScore("abc")).toThrow(TypeError);
+        expect(()=>getScore(123)).toThrow(TypeError);
+        expect(()=>getScore({name:"Ishit"})).toThrow(TypeError);
+    })
+
     it("should return 90  when input is [3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6]",()=>{
         expect(getScore([3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6])).toBe(90);
     })

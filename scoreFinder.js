@@ -1,4 +1,7 @@
 function getScore(scoreSheet) {
+    if(!Array.isArray(scoreSheet)){
+        throw new TypeError();
+    }
     let totalScore = 0;
     let frameCount = 1;
     for (let i = 0; i < scoreSheet.length && frameCount <= 10; frameCount++) {
