@@ -1,48 +1,36 @@
-function getScore(frames){
-    let totalScore=0;
-    let state=0;
-    // state=0      normal scoring
-    // state=1      spare scoring
-    // state=2      strike scoring
-    for(let i=0;i<frames.length;){
-        console.log(frames[i]+" ");
-        if(state===0){
-            let thisFrameScore=0;
-            if(frames[i]==10){
-                //this is strike
-                thisFrameScore=10;
-                if(i+1<frames.length){
-                    thisFrameScore+=frames[i+1];
-                }
-                if(i+2<frames.length){
-                    thisFrameScore+=frames[i+2];
-                }
-                i++;
+function getScore(scoreSheet) {
+    let totalScore = 0;
+    let frameCount = 1;
+    for (let i = 0; i < scoreSheet.length && frameCount <= 10; frameCount++) {
+        let currScore = 0;
+        if (scoreSheet[i] == 10) {
+            //this is strike
+            currScore = 10;
+            if (i + 1 < scoreSheet.length) {
+                currScore += scoreSheet[i + 1];
             }
-            else if(i+1<frames.length && frames[i]+frames[i+1]==10){
-                //this is spare
-                thisFrameScore=10;
-                if(i+2<frames.length){
-                    thisFrameScore+=frames[i+2];
-                }
-                i+=2;
+            if (i + 2 < scoreSheet.length) {
+                currScore += scoreSheet[i + 2];
             }
-            else{
-                thisFrameScore=frames[i]+frames[i+1];
-                i+=2;
+            i++;
+        }
+        else if (i + 1 < scoreSheet.length && scoreSheet[i] + scoreSheet[i + 1] == 10) {
+            //this is spare
+            currScore = 10;
+            if (i + 2 < scoreSheet.length) {
+                currScore += scoreSheet[i + 2];
             }
-            totalScore+=thisFrameScore;
+            i += 2;
         }
-        else if(state==1){
-
+        else {
+            currScore = scoreSheet[i] + scoreSheet[i + 1];
+            i += 2;
         }
-        else{
-
-        }
+        totalScore += currScore;
     }
     return totalScore;
 }
-
-module.exports={
-    getScore:getScore
+console.log(getScore([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 10, 10]))
+module.exports = {
+    getScore: getScore
 }
