@@ -36,7 +36,15 @@ function getScore(scoreSheet) {
     console.log(bestScore);
     return totalScore;
 }
+function getBestScore(games){
+    let bestScore=-1;
+    games.forEach((game)=>{
+        bestScore=Math.max(bestScore,getScore(game));
+    })
+    return bestScore;
+}
 console.log(getScore([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 10, 10]))
 module.exports = {
     getScore: getScore,
+    getBestScore:getBestScore
 }
